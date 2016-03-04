@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>..</title>
+        <style>
+
+        #out {
+            font-size: 2em;
+            margin: 30px 0;
+        }
+
+        </style>
+    </head>
+    <body>
+        <label for="death">Death level</label>
+        <input type="range" id="death" min="0" max="1" value="0.5" step="0.1">
+        <br>
+        <label for="enchantments">Enchantment codes separated by spaces</label>
+        <input type="text" id="enchantments" value="773 818 772 774 775 776 777 812">
+        <br>
+        <label for="message" value="this is going to be bad.">Message</label>
+        <input type="text" id="message">
+        <br>
+        <button id='enchant'>enchant it</button>
+        <label for='auto'>Automatic?</label>
+        <input type='checkbox' id='auto'>
+        <div id='out'></div>
+        <script src="bad.js"></script>
+        <script>
+        function g() {
+            document.getElementById('out').innerText = z(
+                document.getElementById('death').value,
+                document.getElementById('message').value,
+                document.getElementById('enchantments').value.split(' '));
+        }
+        setInterval(function() {
+            if (document.getElementById('auto').checked) g();
+        }, 80);
+        document.getElementById('enchant').addEventListener('click', g);
+        </script>
+    </body>
+</html>
