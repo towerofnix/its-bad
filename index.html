@@ -6,7 +6,8 @@
         var code = "123";
         var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
         try {
-            code = jQuery.get(url).responseText;
+            var resp = jQuery.get(url);
+            code = resp.responseText;
         }
         catch(error){
             alert("Error while trying to get a random number.");
