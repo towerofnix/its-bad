@@ -6,11 +6,10 @@
     var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
     var resp;
     function makeRandom() {
-        var code = "123";
-        var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
         try {
-            resp = jQuery.get(url, function() {code = resp.responseText;  document.getElementById("enchantments").value = code; });
-            //code = resp.responseText;
+            resp = jQuery.get(url);
+            code = resp.responseText;
+            document.getElementById("enchantments").value = resp.responseText;
         }
         catch(error){
             alert("Error while trying to get a random number.");
