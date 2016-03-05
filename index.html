@@ -2,17 +2,19 @@
 <html>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
+    var code = "123";
+    var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
+    var resp;
     function makeRandom() {
         var code = "123";
         var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
         try {
-            var resp = jQuery.get(url);
-            code = resp.responseText;
+            resp = jQuery.get(url, function() {code = resp.responseText;  document.getElementById("enchantments").innerHTML = code; });
+            //code = resp.responseText;
         }
         catch(error){
             alert("Error while trying to get a random number.");
         }
-        document.getElementById("enchantments").innerHTML = code;
     }
     </script>
     <head>
