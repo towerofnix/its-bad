@@ -9,7 +9,7 @@
         var code = "123";
         var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
         try {
-            resp = jQuery.get(url, function() {code = resp.responseText;  document.getElementById("enchantments").innerHTML = code; });
+            resp = jQuery.get(url, function() {code = resp.responseText;  document.getElementById("enchantments").value = code; });
             //code = resp.responseText;
         }
         catch(error){
