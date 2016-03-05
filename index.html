@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+    function makeRandom() {
+        var code = "123";
+        var url = "https://www.random.org/integers/?num=1&min=100&max=1000000000&col=1&base=10&format=plain&rnd=new";
+        try {
+            code = jQuery.get(url);
+        }catch{
+            alert("Error while trying to get a random number.");
+        }
+        document.getElementById("enchantments").innerHTML = code;
+    }
+    </script>
     <head>
         <meta charset='utf-8' />
         <title>..</title>
@@ -18,6 +31,7 @@
         <br>
         <label for="enchantments">Enchantment codes separated by spaces</label>
         <input type="text" id="enchantments" value="773 818 772 774 775 776 777 812">
+        <button onclick="makeRandom()">Random Enchantment from Random.ORG</button>
         <br>
         <label for="message" value="this is going to be bad.">Message</label>
         <input type="text" id="message">
