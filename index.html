@@ -7,7 +7,7 @@
     var resp;
     function makeRandom() {
         try {
-            resp = jQuery.get(url, null, function() {code = resp.responseText; document.getElementById("enchantments").value = resp.responseText;});
+            resp = jQuery.get(url, null, function() {code = resp.responseText; code = code.replace(/\n/g, " "); document.getElementById("enchantments").value = code;});
             
         }
         catch(error){
